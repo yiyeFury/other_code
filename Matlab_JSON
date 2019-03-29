@@ -1,7 +1,12 @@
-"使用MATLAB创建JSON格式的字符串"
+"使用MATLAB创建JSON格式的字符串，并将其保存到文件"
 
 file = {'\path\my_file'};
 id = {'FRDE--'};
 type = {'R'};
 result_info = table(file, id, type);
 result_msg = jsonencode(struct('status', 'success', 'message', 'msg', 'result', result_info));
+
+% json_file = '.../json.txt';
+file_id = fopen(json_file, 'w', 'n', 'UTF-8');
+fprintf(file_id, '%s', result_msg);
+fclose(file_id);
