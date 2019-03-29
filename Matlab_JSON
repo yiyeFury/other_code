@@ -1,0 +1,7 @@
+"使用MATLAB创建JSON格式的字符串"
+
+file = {'\path\my_file'};
+id = {'FRDE--'};
+type = {'R'};
+result_info = table(file, id, type);
+result_msg = jsonencode(struct('status', 'success', 'message', 'msg', 'result', result_info));
